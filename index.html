@@ -1,25 +1,62 @@
 <!DOCTYPE html>
-<html lang='en'>
-
+<html lang="en">
 <head>
-  <meta charset='UTF-8'>
-  <title>TMDB Movie Anaysis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMDB Movie Analysis</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <h1>Breakeven Profit/Loss</h1>
+<body class = 'body'>
+    <!--Navbar: Home | Reviews | Contact Me-->
+    <div class = 'navbar'>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="visualizations.html">Visualizations</a></li>
+            <li><a href="index.html#contact_us" >Contact Us</a></li>
+        </ul>
+    </div>
 
-  <div id="dropdown">
-    <label for = 'select-genre'>Genre:</label>
-    <select id = 'select-genre'>
-      <option value = "all">All Genres</option>
-    </select>
-  </div>
+    <!--Heading-->
+    <div class = "container">
+        <div class = 'popcorn'>
+            <img src="images/popcorn.png">
+        </div> 
+        
+        <div class = "title">
+            <h1>TMDB Movie Analysis</h1>
+        </div>
 
-  <div id="breakeven"></div>
-  
-  <script src='https://d3js.org/d3.v7.min.js'></script>
-  <script src='breakeven_plot.js'></script>
+        <div class = 'popcorn'>
+            <img src="images/popcorn.png">
+        </div> 
+
+    </div>
+
+    <p id = 'introduction'>
+        Introduction to Project
+    </p>
+
+    <p id = 'data'>
+        Data cleaning/analysis
+    </p>
+
+    <!--Contact Us-->
+    <div id = "contact_us">
+        <h3>Contact Us</h3>
+        <p>Email: </p>
+    
+        <form>
+            <label>Your Email</label>
+            <input type = "text" placeholder="Enter your email">
+
+            <label>Ticket</label>
+            <textarea placeholder="Write something..."></textarea>
+
+            <input type = "submit" value="Create Ticket">
+        </form>
+
+    </div>
+    
 </body>
-
 </html>
