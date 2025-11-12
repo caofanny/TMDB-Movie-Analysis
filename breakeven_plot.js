@@ -1,8 +1,3 @@
-// d3 scatter plot with x: budget, y: revenue
-//   points for each movie, colored by how profitable it is
-//       profitability depends on how many more times it is earning 
-//   selection for the different genres (only take in the first genre)
-
 const movie_data = d3.csv('movies_cleaned.csv')
 
 // loads the data and changes budget and revenue into numbers
@@ -20,12 +15,25 @@ movie_data.then(function(data) {
         d.genres = str_genre.split(',')[0].trim();
     });
 
+    // get all the genres
+    let allGenre = Array.from(new Set(data.map(d => d.genres))).sort();
+
+    // update dropdown option to include all genres
+    let dropdown = d3.select('#select-genre');
+    dropdown.selectAll('option.select-genre')
+            .data(allGenre)
+            .enter()
+            .append('option')
+            .attr('value', d => d)
+            .text(d => d);
+
+    // gets the colors of each movie based on profitability
     function assign_colors(profitability){
         if (profitability < 1) return 'red';    // loss
         if (profitability < 2) return 'yellow'; // break-even
         if (profitability < 5) return 'blue';   // profitable
         return 'green';                         // extremely profitable`    
-    }
+    };
 
     // defining the svg margins and dimensions
     let 
@@ -64,17 +72,6 @@ movie_data.then(function(data) {
                 .call(d3.axisLeft().scale(yScale))
                 .attr('transform', `translate(${margin.left}, 0)`);
 
-    // plot points
-    let circle = svg.selectAll('circle')
-                    .data(data)
-                    .enter()
-                    .append('circle')
-                    .attr('r', 3)
-                    .attr('cx', d => xScale(d.budget))
-                    .attr('cy', d => yScale(d.revenue))
-                    .attr('opacity', 0.6)
-                    .attr('fill', d => assign_colors(d.profitability));
-
     // add x-axis label              
     svg.append('text')
         .attr('x', width/2)
@@ -89,4 +86,37 @@ movie_data.then(function(data) {
         .text('Revenue')
         .style('text-anchor', 'middle')
         .attr('transform', 'rotate(-90)');
+    
+    // updates the graph based on genre selected
+    function updateGraph(selectedGenre) {
+        let filteredData = data;
+        // set data to the data of the specific genre
+        if (selectedGenre != 'all') {
+            filteredData = data.filter(d => (d.genres == selectedGenre));
+        } 
+
+        let circle = svg.selectAll('circle')
+                        .data(filteredData, d => d.title); // match data to movie titles
+        
+        // removes the circles without data
+        circle.exit().remove();
+
+        // adds the new circles
+        circle.enter()
+            .append('circle')
+            .attr('r', 3)
+            .attr('cx', d => xScale(d.budget))
+            .attr('cy', d => yScale(d.revenue))
+            .attr('opacity', 0.6)
+            .attr('fill', d => assign_colors(d.profitability));
+    }
+
+    // initial graph
+    updateGraph('all');
+
+    // eventlistener: when there is a change, update the graph
+    d3.select('#select-genre').on('change', function() {
+        updateGraph(this.value);
+    });
+
 });
