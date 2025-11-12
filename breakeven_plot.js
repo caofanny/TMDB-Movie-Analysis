@@ -86,6 +86,50 @@ movie_data.then(function(data) {
         .text('Revenue')
         .style('text-anchor', 'middle')
         .attr('transform', 'rotate(-90)');
+
+    // make a legend
+    let legend = svg.append('g')
+                .attr('class', 'legend')
+                .attr('transform', `translate(${width - margin.right - 150}, ${margin.top})`);
+    
+    // data for the legend
+    let legendData = [
+        {color: 'red', label: '< 1x (Loss)'},
+        {color: 'yellow', label: '1x - 2x (Break-even)'},
+        {color: 'blue', label: '2x - 5x (Profitable)'},
+        {color: 'green', label: '> 5x (Highly Profitable)'}
+    ];
+    
+    let legendItem = legend.selectAll('.legend-item')
+        .data(legendData)
+        .enter()
+        .append('g')
+        .attr('class', 'legend-item')
+        .attr('transform', (d, i) => `translate(0, ${i * 25})`);
+    
+    // adds the colors
+    legendItem.append('circle')
+        .attr('r', 5)
+        .attr('cx', 5)
+        .attr('cy', 2)
+        .attr('fill', d => d.color)
+        .attr('opacity', 0.7);
+
+    // Add text labels
+    legendItem.append('text')
+        .attr('x', 15)
+        .attr('y', 5)
+        .text(d => d.label)
+        .style('font-size', '12px')
+        .style('font-family', 'Arial');
+
+    // Add legend title
+    legend.append('text')
+        .attr('x', 0)
+        .attr('y', -10)
+        .text('Profitability')
+        .style('font-weight', 'bold')
+        .style('font-size', '14px');
     
     // updates the graph based on genre selected
     function updateGraph(selectedGenre) {
@@ -95,7 +139,7 @@ movie_data.then(function(data) {
             filteredData = data.filter(d => (d.genres == selectedGenre));
         } 
 
-        let circle = svg.selectAll('circle')
+        let circle = svg.selectAll('circle.data')
                         .data(filteredData, d => d.title); // match data to movie titles
         
         // removes the circles without data
@@ -104,6 +148,7 @@ movie_data.then(function(data) {
         // adds the new circles
         circle.enter()
             .append('circle')
+            .attr('class', 'data')
             .attr('r', 3)
             .attr('cx', d => xScale(d.budget))
             .attr('cy', d => yScale(d.revenue))
