@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altair Visualizations - TMDB Movie Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #ffe1e1;
+        }
+        .viz-container {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+        .viz-wrapper {
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: none;
+        }
+        .viz-row {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+            background: none;
+        }
+        .viz-left, .viz-right {
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .viz-left-one {
+            padding-left: 170px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .viz-left-two {
+            padding-left: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .viz-right {
+            padding: 22px 24px 0 24px;
+            font-size: 1em;
+            color: #222;
+            line-height: 2;
+            text-align: left;
+        }
+        .viz-right h3 {
+            margin-top: 0;
+            margin-bottom: 14px;
+        }
+        iframe {
+            width: 98%;
+            min-width: 380px;
+            height: 550px;
+            border: none;
+            display: block;
+            margin: 0 auto;
+        }
+        @media (max-width: 1100px) {
+            .viz-row { flex-direction: column; }
+            .viz-left, .viz-right, .viz-left-one, .viz-left-two { width: 100%; padding-left: 0;}
+            iframe { width: 100%; height: 320px; }
+        }
+    </style>
+</head>
+
+<body class='body'>
+    <!--Navbar-->
+    <div class='navbar'>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="visualizations.html">D3</a></li>
+            <li><a href="altair_visualizations.html">Altair</a></li>
+            <li><a href="index.html#contact_us">Static</a></li>
+            <li><a href="index.html#contact_us">Contact Us</a></li>
+        </ul>
+    </div>
+    <!--Heading-->
+    <div class="container">
+        <div class='popcorn'>
+            <img src="images/popcorn.png">
+        </div>
+        <div class="title">
+            <h1>Altair Visualizations</h1>
+        </div>
+        <div class='popcorn'>
+            <img src="images/popcorn.png">
+        </div>
+    </div>
+    <div class="viz-container">
+        <!-- First Visualization: Time Scroller -->
+        <div class="viz-wrapper">
+            <div class="viz-row">
+                <div class="viz-left viz-left-one">
+                    <iframe src="movie_release_scroller.html"></iframe>
+                </div>
+                <div class="viz-right">
+                    <h3>Movie Release Patterns by Year and Month - Interactive Time Scroller</h3>
+                    The movie release time scroller reveals clear seasonal patterns and long-term growth trends in the film industry. The visualization shows that movie releases have dramatically increased over time, with minimal releases from 1916-1960 (averaging 1-3 movies per month), followed by steady growth from the 1960s onward, and explosive growth from the 1990s to 2016 (reaching 20-30 movies per month). Users can identify distinct seasonal trends by adjusting the time range. Peak release periods consistently occur during summer months (May-August) and holiday seasons (November-December), while January and February show notably fewer releases. This visualization empowers filmmakers and producers to make strategic release decisions by identifying less crowded months to maximize box office potential for mid-budget films, targeting peak seasons only when equipped with blockbuster budgets, and avoiding direct competition with major studio releases in order to reduce financial risk while maximizing audience reach and revenue potential.
+                </div>
+            </div>
+        </div>
+        <!-- Second Visualization: Budget Analysis -->
+        <div class="viz-wrapper">
+            <div class="viz-row">
+                <div class="viz-left viz-left-two">
+                    <iframe src="Average_Budget.html"></iframe>
+                </div>
+                <div class="viz-right">
+                    <h3>Average Budget Across Countries Analysis</h3>
+                    This grouped bar chart reveals significant variations in studio spending patterns across different international markets which provides crucial insights for competitive positioning and investment strategies. The visualization demonstrates that major studios allocate substantially different budgets depending on the country of production, with some clear patterns emerging: Paramount Pictures and Columbia Pictures tend to invest the highest budgets in Chinese and Japanese markets (averaging $140-170M), while studios like Miramax Films and New Line Cinema maintain relatively modest budgets across all countries ($20-50M). The United States shows the most diverse range of studio budgets, with companies like Walt Disney Pictures averaging around $100M, while smaller studios operate at significantly lower levels. This visualization is essential for business stakeholders evaluating whether they should increase spending to remain competitive in specific markets, as it provides clear benchmarks of how leading companies allocate resources across different geographical regions.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
