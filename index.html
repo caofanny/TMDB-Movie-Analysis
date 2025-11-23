@@ -1,25 +1,78 @@
 <!DOCTYPE html>
-<html lang='en'>
-
+<html lang="en">
 <head>
-  <meta charset='UTF-8'>
-  <title>TMDB Movie Anaysis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMDB Movie Analysis</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <h1>Breakeven Profit/Loss</h1>
+<body class = 'body'>
+    <!--Navbar: Home | Reviews | Contact Me-->
+    <div class = 'navbar'>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="visualizations.html">D3</a></li>
+            <li><a href="index_Altair.html">Altair</a></li>
+            <li><a href="index.html#contact_us" >Static</a></li>
+            <li><a href="index.html#contact_us" >Contact Us</a></li>
+        </ul>
+    </div>
 
-  <div id="dropdown">
-    <label for = 'select-genre'>Genre:</label>
-    <select id = 'select-genre'>
-      <option value = "all">All Genres</option>
-    </select>
-  </div>
+    <!--Heading-->
+    <div class = "container">
+        <div class = 'popcorn'>
+            <img src="images/popcorn.png">
+        </div> 
+        
+        <div class = "title">
+            <h1>TMDB Movie Analysis</h1>
+        </div>
 
-  <div id="breakeven"></div>
-  
-  <script src='https://d3js.org/d3.v7.min.js'></script>
-  <script src='breakeven_plot.js'></script>
+        <div class = 'popcorn'>
+            <img src="images/popcorn.png">
+        </div> 
+
+    </div>
+
+    <p class = 'introduction'>
+        Introduction to project, including the task and topics (5pts)
+    </p>
+
+    <p class='introduction'>
+        <strong>Dataset Introduction</strong> <br>
+        The dataset we used is called the <a href="https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata" target="_blank">TMDB 5000 Movie Dataset</a>, which contains metadata on 4800 movies from Kaggle. This dataset contains information from The Movie Database (TMDb) API. It includes 20 features for data like budget, revenues, genres, popularity, and production company, which covers both categorical (genre) and continuous (budget) data. We will analyze how various features of movie production may contribute to a movie's overall success and returns. Since it is in a CSV file, we will be loading it using Pandas for cleaning and manipulation as part of data visualization.
+    </p>
+
+    <p class='introduction'>
+        <strong>References</strong><br>
+        1. Paul, C., & Das, P. K. (2022). Predicting movie revenue before committing significant investments. <em>Journal of Media Economics</em>, 34(2), 63–90. 
+        <a href="https://doi.org/10.1080/08997764.2022.2066108" target="_blank">https://doi.org/10.1080/08997764.2022.2066108</a><br>
+        2. Wisnefsky, Zachary, "Breaking Down the Box Office: An Analysis of Film Profitability Factors" (2023). Honors Scholar Theses. 968. 
+        <a href="https://opencommons.uconn.edu/srhonors_theses/968" target="_blank">https://opencommons.uconn.edu/srhonors_theses/968</a>
+    </p>
+
+    <p class = 'introduction'>
+        Summary of findings, including what you have learned and what can be done n the future 
+        (need to have 2-3 constructive conclusions/suggestions) (5pts)
+    </p>
+
+    <!--Contact Us-->
+    <div id = "contact_us">
+        <h3>Contact Us</h3>
+        <p>Email: </p>
+    
+        <form>
+            <label>Your Email</label>
+            <input type = "text" placeholder="Enter your email">
+
+            <label>Ticket</label>
+            <textarea placeholder="Write something..."></textarea>
+
+            <input type = "submit" value="Create Ticket">
+        </form>
+
+    </div>
+    
 </body>
-
 </html>
