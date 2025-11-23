@@ -154,6 +154,8 @@
     flex-direction:row;
     align-items: center;
     justify-content: space-between;
+    gap: 40px;
+    padding: 20px 40px;
 }
 
 .seaborn-title {
@@ -163,4 +165,8 @@
     padding-right: 4%;
     justify-content: center;
     text-align: center;
+}
+
+.static-text {
+    text-align: center
 }
