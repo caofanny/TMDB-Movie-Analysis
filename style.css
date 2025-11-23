@@ -148,3 +148,19 @@
     float: left;
     object-fit: contain;
 }
+
+.flex-container{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.seaborn-title {
+    font-family: cursive;
+    font-size: large;
+    padding-left: 5%;
+    padding-right: 4%;
+    justify-content: center;
+    text-align: center;
+}
