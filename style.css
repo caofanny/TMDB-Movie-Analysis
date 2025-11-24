@@ -13,13 +13,6 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.popcorn {
-    width: 30%;
-    height: auto;
-    float: left;
-    
-}
-
 .title {
     font-family: cursive;
     font-size: large;
@@ -49,12 +42,12 @@
 }
 
 .navbar ul {
-  list-style: none;
-  display: flex;
-  justify-content: right;
-  gap: 40px;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: right;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar li a {
@@ -117,34 +110,43 @@
     border: 2px, solid, #f4747d;
 }
 
-.categories{
-    margin: 40px auto;
-    width: 80%;
-    color: #444;
-    background-color: #faf3f3;
-    padding: 20px;
-    border: 2px, solid, #f7babe;
-    border-radius: 20px;
-    text-align: left;
-}
-
-.list_entry{
-    width: 100%;
+.vis_layout {
     display: flex;
-    align-items: center;
-    justify-content: left;
-    padding: 20px 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 95%;
+    margin: 20px auto;
     gap: 20px;
 }
 
-.reviews{
-    flex: 0 0 50%;
+.left {
+    flex: 1;
+    max-width: 48%;
 }
 
-.review_images img{
-    width: 65%;
+.right {
+    flex: 1;
+    max-width: 48%;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+
+}
+
+.up_down {
+    width: 100%;
+}
+
+#dropdown {
+    margin-bottom: 15px;
+}
+
+#breakeven {
+    width: 100%;
+}
+
+#breakeven svg {
+    width: 100%;
     height: auto;
-    display: flex;
-    float: left;
-    object-fit: contain;
+    display: block;
 }
