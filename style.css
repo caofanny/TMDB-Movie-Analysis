@@ -66,7 +66,7 @@
 }
 
 
-#contact_us {
+#contact-us {
     width: 65%;
     margin: 40px auto;
     font-size: 1.2em;
@@ -78,26 +78,26 @@
     border-radius: 20px;
 }
 
-#contact_us input[type = text] {
+#contact-us input[type = text] {
     width: 100%;
     height: 25px;
     border: 2px, solid, #f7babe;
     border-radius: 5px;
 }
 
-#contact_us input[type = text]:focus, .contact_me textarea:focus {
+#contact-us input[type = text]:focus, .contact_me textarea:focus {
     outline: none;
     border: 2px, solid, #f4747d;
 }
 
-#contact_us textarea {
+#contact-us textarea {
     width: 100%;
     height: 50px;
     border: 2px, solid, #f7babe;
     border-radius: 5px;
 }
 
-#contact_us input[type = submit] {
+#contact-us input[type = submit] {
     width: 10%;
     height: 25px;
     background-color: #f7babe;
@@ -105,23 +105,22 @@
     border-radius: 5px;
 }
 
-#contact_us input[type = submit]:hover {
+#contact-us input[type = submit]:hover {
     background-color: #f9989e;
     border: 2px, solid, #f4747d;
 }
 
-.vis_layout {
+.vis-layout {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     width: 95%;
-    margin: 20px auto;
-    gap: 20px;
 }
 
 .left {
     flex: 1;
     max-width: 48%;
+    padding-left: 130px;
 }
 
 .right {
@@ -130,10 +129,11 @@
     padding: 20px;
     border-radius: 10px;
     text-align: left;
-
+    line-height: 2;
+    color: #222;
 }
 
-.up_down {
+.up-down {
     width: 100%;
 }
 
