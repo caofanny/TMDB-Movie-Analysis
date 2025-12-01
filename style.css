@@ -174,4 +174,7 @@
 .static-text {
     text-align: center;
     display: block;
+    text-align: left;
+    line-height: 2;
+    color: #222;
 }
