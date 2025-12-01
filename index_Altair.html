@@ -138,9 +138,27 @@
                     <iframe src="Interaction_Visualization_2.html">  </iframe>
                 </div>
                 <div class = "viz-right">
-                    <h3> Boxplot of ROI Comparison Across Genres</h3>
+                    <h3> Interactive Boxplots of ROI Comparison Across Genres</h3>
                     This visualization is an interactive side-by-side boxplot of ROI Comparison Across Genres, where the x axis of the plot 
-                    <br>consists of the main genre of the movie and the y axis is the ROI of the movie.
+                    consists of the main genre of the movie and the y axis is the ROI of the movie. This visualization consists of a main box plot 
+                    that provides an overview roi accross genres where the user can then select a highlight to focus on. This selection will update
+                    the right box plot titled "Box Plot of Genre Choice" and create a boxplot of the selected genre and its ROI so that the user can 
+                    more detailedly analyze its values. Some of the elements that they will be able to explore more in detail are: variability in the data of the genre,
+                    skewedness, the quartiles, and outliers. Both of the plots contains a treshold line in the y-axis, this line stands in the "success" ROI 
+                    value so that it can be visualized accross the boxplots and connect more effectively to our recommendations. 
+                    
+                    <br> In the main visualization, it seems that most genres (12 out of the 19) have median ROI's that are greater than the succesful treshhold of 
+                    134%. Additionally, all of the median ROI's were positive with the exception of the foreign genre, which was the only one with a boxplot that 
+                    had all negative values, indicating moies in a genre that were not able to make back their production costs. Furthermore, there was a clear pattern of extreme outliers 
+                    throughout the genres, which represents movies that were able to achieve extremely large returns. 
+                    
+                    <br>
+                    The main takeways from this plot are that unreliable genres to invest in are documentaries and horror as they show large variability in the data through their 
+                    large box sizes, meaning their ROI seems to vary alot and it would be hard to get a general idea of what your potential ROI might be. Furthermore,
+                    the safest to invest based on this graph, are animation, romance, western, and thriller as they all have medians above the treshold, small variability/consistent results,
+                    and large outliers suggest the potential of extreme success.
+                
+
                 </div>
             </div>
         </div>
