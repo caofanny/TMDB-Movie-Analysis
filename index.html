@@ -43,7 +43,7 @@
 
     <p class='introduction'>
         <strong>Dataset Introduction</strong> <br>
-        The dataset we used is called the <a href="https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata" target="_blank">TMDB 5000 Movie Dataset</a>, which contains metadata on 4800 movies from Kaggle. This dataset contains information from The Movie Database (TMDb) API. It includes 20 features for data like budget, revenues, genres, popularity, and production company, which covers both categorical (genre) and continuous (budget) data. We will analyze how various features of movie production may contribute to a movie's overall success and returns. Since it is in a CSV file, we will be loading it using Pandas for cleaning and manipulation as part of data visualization.
+        The dataset we used is called the <a href="https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata" target="_blank">TMDB 5000 Movie Dataset</a>, which contains metadata on 4800 movies from Kaggle. After performing data cleaning, the final number of entries in the dataset was 1712.  finalized at around 3000 after cleaning. This dataset contains information from The Movie Database (TMDb) API. It includes 20 features for data like budget, revenues, genres, popularity, and production company, which covers both categorical (genre) and continuous (budget) data. We will analyze how various features of movie production may contribute to a movie's overall success and returns. Since it is in a CSV file, we will be loading it using Pandas for cleaning and manipulation as part of data visualization.
     </p>
 
     <p class='introduction'>
@@ -66,11 +66,20 @@
      <br> <b>Summary Of Findings</b> <br>
         <b> Finding 1: Factors that Can Aid Movie Decision Making: </b>
         Based on our analysis, we found that release date decisions, budget across countries, budget amounts, and genres are factors 
-        that we believe can help act as "controllable" variables that can affect the success of a film. 
+        that we believe can help act as "controllable" variables that can affect the success of a film. When deciding on when
+        a film should be released, filmmakers should identify less crowded months to maximize profit on mid-budget films, peak seasons 
+        for movies with large budgets, and overall aim to release movies in peak seasons to reduce financial risk.   
+        Furthermore, when considering
+        what should a film's global and per region budget be, stakeholders should take in account how leading companies allocate budgets accross different regions to remain
+        competitive. Additionally, we found that when companies have smaller budgets, its easier to achieve higher profitability and as budget increases it gets harder to 
+        achieve profitability. Finally, some genres such as animation and romance prove to be safer than others to invest in, however some show potentials for extreme 
+        success despite smaller budgets like horror. Therefore, depending on their goals on their investments and returns films need to largely consider
+        the genre as a factor that they heavily consider regarding thagt matter.
         <br>
         <b>Finding 2: Factors That Can Not Aid Movie Decision Making: </b>
-        We also found that cast size which was observed in our scatterplot visualization displayed no correlation or relationship to 
-        revenue produced (converted to U.S. Dollars).
+        Although variables such as release dates, budgets, and genres proved to be useful variables for decision making some variables observed failed
+        to prove that they were reliable variables to consider for stakeholders. For instance, cast size which was observed in our scatterplot visualization
+        displayed no correlation or relationship to revenue produced (converted to U.S. Dollars).
     </p>
 
     <p class='introduction'>
