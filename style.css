@@ -148,5 +148,30 @@
 #breakeven svg {
     width: 100%;
     height: auto;
+    display: flex;
+    float: left;
+    object-fit: contain;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 20px 40px;
+}
+
+.seaborn-title {
+    font-family: cursive;
+    font-size: large;
+    padding-left: 5%;
+    padding-right: 4%;
+    justify-content: center;
+    text-align: center;
+}
+
+.static-text {
+    text-align: center
     display: block;
 }

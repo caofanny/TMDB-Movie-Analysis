@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Visualizations - TMDB Movie Analysis</title>
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
+  </head>
+
+  <body class="body">
+    <!--Keeping the Navbar: Home | Reviews | Contact Me from the home page-->
+    <div class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="visualizations.html">D3</a></li>
+        <li><a href="index_Altair.html">Altair</a></li>
+        <li><a href="static.html">Static</a></li>
+        <li><a href="index.html#contact_us">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!--Adding the title of the page-->
+      <div class="seaborn-title">
+            <h1>Static Visualizations</h1>
+        </div>
+
+    <!--- USING A FLEX CONTAINER FOR STATIC VISUALIZATION IMAGE + TEXT -->
+    <div class="flex-container">
+
+      <!-- Class for image of data visualization-->
+      <div class = "static-visualization">
+        <img src="visualization_4.png" alt="Static Visualization" />
+
+      </div>
+
+      <div class = "static-text">
+        <h2>Scatterplot of Cast Size and Revenue</h3>
+          <h3>Interpretation:</h3>
+        <p>
+         This is a scatterplot that displays the relationship between a movie's cast size and revenue in U.S. dollars.  <br>
+         Most of the data points appear to cluster in the bottom right of the graph but there are also a lot of points scattered randomly across the graph. 
+         It's important that there is an outlier point that showcases a large cast size and converted revenue, however, since it’s just one point we can’t use 
+         this to support an argument supporting an existing relationship. This leads us to believe that there appears to be no correlation between the cast size of a 
+         movie and the amount of revenue that was produced.Therefore, when planning for the production of a new film, cast size doesn’t appear to be a useful variable 
+         to know and control to maximize revenue.
+        </p>
+
+      </div>
+
+
+
+
+
+    </div>
+
+  </body>
+</html>
