@@ -35,10 +35,14 @@ movie_data.then(function(data) {
         return 'green';                         // extremely profitable`    
     };
 
+    // Get container width and make it responsive
+    const container = d3.select('#breakeven');
+    const containerWidth = container.node().getBoundingClientRect().width;
+
     // defining the svg margins and dimensions
     let 
-        width = 800,
-        height = 600;
+        width = containerWidth;
+        height = width * 0.75;
 
     let margin = { 
         top: 50,
@@ -52,6 +56,8 @@ movie_data.then(function(data) {
                 .append('svg')
                 .attr('width', width)
                 .attr('height', height)
+                .attr('viewBox', `0 0 ${width} ${height}`)
+                .attr('preserveAspectRatio', 'xMidYMid meet')
                 .style('background', 'white');
 
     // define the scales

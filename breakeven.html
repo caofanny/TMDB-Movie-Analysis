@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMDB Movie Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class = 'body'>
+    <!--Navbar: Home | Reviews | Contact Me-->
+    <div class = 'navbar'>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="visualizations.html">D3</a></li>
+            <li><a href="index_Altair.html">Altair</a></li>
+            <li><a href="index.html#contact_us" >Static</a></li>
+            <li><a href="index.html#contact_us" >Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!--Heading-->
+    <div class = "container">
+        <div class = "title">
+            <h1>D3 Breakeven Profit/Loss</h1>
+        </div>
+    </div>
+  
+    <div class = "vis-layout">
+        <div class = "left">
+            <div class = "up-down">
+                <div id="dropdown">
+                  <label for = 'select-genre'>Genre:</label>
+                  <select id = 'select-genre'>
+                      <option value = "all">All Genres</option>
+                  </select>
+              </div>
+
+              <div id="breakeven"></div>
+            </div>
+        </div>
+
+        <div class = "right">
+              <h3>Scatterplot with Break-even, Profit, and Loss Analysis - Interactive Dropdown</h3>
+              This scatterplot shows whether each movie had a loss, profit, or broke even with their initial investment.
+              While there is an general positive trend between budget and revenue, higher revenue does not necessarily 
+              translate to a higher profit. Lower budget movies of less than $50 million accounts for majority of the
+              highly profitable movies, earning more than 5 times their budget. As the budget increases from 50 million
+              to 100 million, the distribution of highly profitable movies becomes more dispersed, while the profitable
+              movies, earning to to five times their budget, becomes more concentrated. This pattern suggests that although
+              higher budgets often secure greater revenues, they may face difficulty in achieving high profit ratios. The
+              sparse presence of movies with losses suggest that most movies tend to at least break even or generate a
+              profit.
+        </div>
+    </div>
+    
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+    <script src='breakeven_plot.js'></script>
+</body>
+
+</html>
