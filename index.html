@@ -7,99 +7,43 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class = 'body'>
-    <!--Navbar: Home | Reviews | Contact Me-->
-    <div class = 'navbar'>
+<body class='body'>
+    <!--Navbar-->
+    <div class='navbar'>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="breakeven.html">D3</a></li>
-            <li><a href="index_Altair.html">Altair</a></li>
-            <li><a href="static.html" >Static</a></li>
-            <li><a href="index.html#contact_us" >Contact Us</a></li>
+            <li><a href="Financial_performance.html">Financial Performance</a></li>
+            <li><a href="Production_Strategy.html">Production Strategy</a></li>
+            <li><a href="Release_Time.html">Release Timing</a></li>
+            <li><a href="Conclusion.html">Conclusion</a></li>
         </ul>
     </div>
 
     <!--Heading-->
-    <div class = "container">
-        <div class = "title">
+    <div class="container">
+        <div class="title">
             <h1>TMDB Movie Analysis</h1>
         </div>
     </div>
 
-    <p class = 'introduction'>
-        <b> Project Introduction </b>
+    <p class='introduction'>
+        <b>Project Introduction</b>
         <br>
         
-    Movies are an investment. From production costs, actors’ million dollar salaries, and marketing campaigns, producing a movie can cost anything from 
-    $10,000 for an indie-film and up to $400,000,000 for a Hollywood blockbuster. Therefore, for business stakeholders’, 
+    Movies are an investment. From production costs, actors' million dollar salaries, and marketing campaigns, producing a movie can cost anything from 
+    $10,000 for an indie-film and up to $400,000,000 for a Hollywood blockbuster. Therefore, for business stakeholders', 
     identifying any factors that could potentially influence their production strategies is crucial and could lead to millions of dollars in savings.
     In our project, we will be using data analysis and visualization methods to find trends, identify relationships, and compare data with an end goal of identifying
     areas of potential investment and cost savings in the movie industry. Some examples of our areas of observation are: exploring correlations across different types of production 
     factors vs revenue, comparing profitability across genres, and identifying any seasonal trends in the industry. We will be using online data which will require initial 
     cleaning and processing to ensure accuracy and efficiency of our analysis and visualizations. Overall, our project will consist of using various data visualization methods, 
     identifying any controllable factors in the movie production process that could possibly affect the success of a film.
-
     </p>
 
     <p class='introduction'>
         <strong>Dataset Introduction</strong> <br>
         The dataset we used is called the <a href="https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata" target="_blank">TMDB 5000 Movie Dataset</a>, which contains metadata on 4800 movies from Kaggle. After performing data cleaning, the final number of entries in the dataset was 3087. This dataset contains information from The Movie Database (TMDb) API. It includes 20 features for data like budget, revenues, genres, popularity, and production company, which covers both categorical (genre) and continuous (budget) data. We will analyze how various features of movie production may contribute to a movie's overall success and returns. Since it is in a CSV file, we will be loading it using Pandas for cleaning and manipulation as part of data visualization.
     </p>
-
-    <p class='introduction'>
-        <strong>References</strong><br>
-        1. Paul, C., & Das, P. K. (2022). Predicting movie revenue before committing significant investments. <em>Journal of Media Economics</em>, 34(2), 63–90. 
-        <a href="https://doi.org/10.1080/08997764.2022.2066108" target="_blank">https://doi.org/10.1080/08997764.2022.2066108</a><br>
-        2. Wisnefsky, Zachary, "Breaking Down the Box Office: An Analysis of Film Profitability Factors" (2023). Honors Scholar Theses. 968. 
-        <a href="https://opencommons.uconn.edu/srhonors_theses/968" target="_blank">https://opencommons.uconn.edu/srhonors_theses/968</a>
-    </p>
-
-    <p class = 'introduction'>
-     <b>Definition of Success: ROI Percentiles</b> <br>
-     For our analysis, we defined our definition of success based on the 50th percentile/median of the ROI's we calculated. In general,
-     a "good" ROI is considered to be around 10%, but this varies based on the type of investment. In our case, the investment is the production 
-     of the movie, in which ROI's are most of the time way greater than 10%. For this reason, we decided to define a succesful movie based on the
-     distrubution of the data and not a general value of success. Specifically, we defined the 50th percentile as the mark of success for a movie, which
-     in our case, is 134%.
-
-     
-     <br> <b>Summary Of Findings</b> <br>
-        <b> Finding 1: Factors that Can Aid Movie Decision Making: </b>
-        Based on our analysis, we found that release date decisions, budget across countries, budget amounts, and genres are factors 
-        that we believe can help act as "controllable" variables that can affect the success of a film. 
-        <br>
-        <b>Finding 2: Factors That Can Not Aid Movie Decision Making: </b>
-        We also found that cast size displayed no correlation or relationship to revenue produced (converted to U.S. Dollars).
-    </p>
-
-    <p class='introduction'>
-        <b> Our Recommendation for a Successful Movie </b><br>
-        <b>Release date (peak periods are summer months): </b> release a movie in a calmer month like February 
-        to get rid of the rapid competition and to stand out. <br>
-        <b>Global budgets: </b> research what amount of resources the top competitors are allocating in those markets to 
-        remain compeititve or focus on regions with lower production costs. <br>
-        <b>Genre:</b> produce a movie with a genre that gives safe and consistent results in ROI (animation
-        and romance movies) which although safe, also have potential of achieving extremely succesful ROI amounts.<br> 
-        <b>Overall budget:</b> stick to a smaller budget as we found that as companies increase budget spending, 
-        it gets harder to achieve profitability.
-    </p>
-
-    <!--Contact Us-->
-    <div id = "contact-us">
-        <h3>Contact Us</h3>
-        <p>Email: team5movieanalysis@northeastern.edu</p>
-    
-        <form>
-            <label>Your Email</label>
-            <input type = "text" placeholder="Enter your email">
-
-            <label>Ticket</label>
-            <textarea placeholder="Write something..."></textarea>
-
-            <input type = "submit" value="Create Ticket">
-        </form>
-
-    </div>
     
 </body>
 </html>

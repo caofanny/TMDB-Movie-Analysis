@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Performance - TMDB Movie Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #ffe1e1;
+        }
+        .viz-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .viz-wrapper {
+            width: 100%;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: none;
+        }
+        
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        /* Column layout */
+        .viz-row {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: none;
+            align-items: center;
+        }
+        
+        /* Visualization container */
+        .viz-left {
+            width: 100%;
+            max-width: 1200px;
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+        
+        /* Analysis container */
+        .viz-right {
+            width: 100%;
+            max-width: 1200px;
+            background-color: rgba(255, 240, 245, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            text-align: left;
+            margin: 0 auto;
+        }
+        
+        .viz-right h3 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        /* Interaction features section */
+        .interaction-features {
+            width: 100%;
+            max-width: 1200px;
+            background-color: rgba(255, 235, 240, 0.85);
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin: 0 auto;
+            border-left: 4px solid #ffb6c1;
+        }
+        
+        .interaction-features h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #d45d79;
+            text-align: left;
+        }
+        
+        .interaction-features ul {
+            margin: 10px 0 10px 0;
+            padding-left: 0;
+            list-style-position: outside;
+            margin-left: 20px;
+        }
+        
+        .interaction-features li {
+            margin-bottom: 8px;
+            text-align: left;
+        }
+        
+        /* Dropdown styling */
+        #dropdown {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        #dropdown label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 10px;
+        }
+        
+        #select-genre {
+            padding: 8px 15px;
+            font-size: 14px;
+            border: 2px solid #ffb6c1;
+            border-radius: 5px;
+            background-color: white;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        #select-genre:hover {
+            border-color: #ff9db8;
+        }
+        
+        #breakeven {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        @media (max-width: 1100px) {
+            .viz-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body class='body'>
+    <!--Navbar-->
+    <div class='navbar'>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Financial_performance.html">Financial Performance</a></li>
+            <li><a href="Production_Strategy.html">Production Strategy</a></li>
+            <li><a href="Release_Time.html">Release Timing</a></li>
+            <li><a href="Conclusion.html">Conclusion</a></li>
+        </ul>
+    </div>
+
+    <!--Heading-->
+    <div class="container">
+        <div class="title">
+            <h1>Financial Performance</h1>
+        </div>
+    </div>
+    
+    <div class="viz-container">
+        <!-- Breakeven Analysis -->
+        <div class="viz-wrapper">
+            <h2 class="section-title">Budget vs Revenue Analysis</h2>
+            <div class="viz-row">
+                <div class="viz-left">
+                    <div id="dropdown">
+                        <label for='select-genre'>Genre:</label>
+                        <select id='select-genre'>
+                            <option value="all">All Genres</option>
+                        </select>
+                    </div>
+                    <div id="breakeven"></div>
+                </div>
+                
+                <!-- Interaction Features Section -->
+                <div class="interaction-features">
+                    <h3>Interaction Features</h3>
+                    <ul>
+                        <li><strong>Select a genre</strong> from the dropdown menu to filter movies by genre</li>
+                        <li><strong>Choose "All Genres"</strong> to view the complete dataset</li>
+                        <li><strong>Hover over data points</strong> to see movie details including title, budget, revenue, and profitability status</li>
+                        <li><strong>Observe the diagonal line</strong> representing the break-even point where budget equals revenue</li>
+                        <li><strong>Identify profitability zones</strong>: points above the line are profitable, below the line indicate losses</li>
+                    </ul>
+                </div>
+                
+                <div class="viz-right">
+                    <h3>Scatterplot with Break-even, Profit, and Loss Analysis - Interactive Dropdown</h3>
+                    This scatterplot shows whether each movie had a loss, profit, or broke even with their initial investment.
+                    While there is a general positive trend between budget and revenue, higher revenue does not necessarily 
+                    translate to a higher profit. Lower budget movies of less than $50 million account for the majority of the
+                    highly profitable movies, earning more than 5 times their budget. As the budget increases from 50 million
+                    to 100 million, the distribution of highly profitable movies becomes more dispersed, while the profitable
+                    movies, earning two to five times their budget, become more concentrated. 
+                    
+                    <br><br>This pattern suggests that although higher budgets often secure greater revenues, they may face difficulty in achieving high profit ratios. The
+                    sparse presence of movies with losses suggests that most movies tend to at least break even or generate a
+                    profit. This visualization is crucial for stakeholders to understand the risk-reward relationship of different budget levels and make informed investment decisions.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+    <script src='breakeven_plot.js'></script>
+</body>
+
+</html>

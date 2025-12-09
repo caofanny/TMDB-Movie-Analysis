@@ -34,7 +34,7 @@
 }
 
 .navbar {
-    position: sticky;
+    position: relative;
     top: 0;
     padding: 15px;
     background-color: #f7babe;

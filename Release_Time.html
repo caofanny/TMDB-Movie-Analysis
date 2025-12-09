@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Release Timing - TMDB Movie Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #ffe1e1;
+        }
+        .viz-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .viz-wrapper {
+            width: 100%;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: none;
+        }
+        
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        /* Column layout */
+        .viz-row {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: none;
+            align-items: center;
+        }
+        
+        /* Visualization container */
+        .viz-left {
+            width: 100%;
+            max-width: 1200px;
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+        
+        /* Analysis container */
+        .viz-right {
+            width: 100%;
+            max-width: 1200px;
+            background-color: rgba(255, 240, 245, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            text-align: left;
+            margin: 0 auto;
+        }
+        
+        .viz-right h3 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        /* Interaction features section */
+        .interaction-features {
+            width: 100%;
+            max-width: 1200px;
+            background-color: rgba(255, 235, 240, 0.85);
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin: 0 auto;
+            border-left: 4px solid #ffb6c1;
+        }
+        
+        .interaction-features h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #d45d79;
+            text-align: left;
+        }
+        
+        .interaction-features ul {
+            margin: 10px 0 10px 0;
+            padding-left: 0;
+            list-style-position: outside;
+            margin-left: 20px;
+        }
+        
+        .interaction-features li {
+            margin-bottom: 8px;
+            text-align: left;
+        }
+        
+        iframe {
+            width: 100%;
+            max-width: 1100px;
+            height: 550px;
+            border: none;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 1100px) {
+            iframe { 
+                width: 100%; 
+                height: 400px; 
+            }
+            .viz-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body class='body'>
+    <!--Navbar-->
+    <div class='navbar'>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Financial_performance.html">Financial Performance</a></li>
+            <li><a href="Production_Strategy.html">Production Strategy</a></li>
+            <li><a href="Release_Time.html">Release Timing</a></li>
+            <li><a href="Conclusion.html">Conclusion</a></li>
+        </ul>
+    </div>
+    
+    <!--Heading-->
+    <div class="container">
+        <div class="title">
+            <h1>Release Timing Analysis</h1>
+        </div>
+    </div>
+    
+    <div class="viz-container">
+        <div class="viz-wrapper">
+            <h2 class="section-title">Movie Release Patterns</h2>
+            <div class="viz-row">
+                <div class="viz-left">
+                    <iframe src="movie_release_scroller.html"></iframe>
+                </div>
+                
+                <!-- Interaction Features Section -->
+                <div class="interaction-features">
+                    <h3>Interaction Features</h3>
+                    <ul>
+                        <li><strong>Drag the time slider</strong> below the chart to adjust the date range and explore different time periods</li>
+                        <li><strong>Hover over data points</strong> to see exact release dates and movie counts for specific months</li>
+                        <li><strong>Zoom in/out</strong> using the slider to focus on specific years or view the entire timeline</li>
+                        <li><strong>Observe the trend line</strong> to identify seasonal patterns and peak release periods</li>
+                    </ul>
+                </div>
+                
+                <div class="viz-right">
+                    <h3>Movie Release Patterns by Year and Month - Interactive Time Scroller</h3>
+                    The movie release time scroller reveals clear seasonal patterns and long-term growth trends in the film industry. 
+                    The visualization shows that movie releases have dramatically increased over time, with minimal releases from 1916-1960 (averaging 1-3 movies per month), 
+                    followed by steady growth from the 1960s onward, and explosive growth from the 1990s to 2016 (reaching 20-30 movies per month). Users can identify distinct seasonal trends by adjusting the time range. 
+                    Peak release periods consistently occur during summer months (May-August) and holiday seasons (November-December), while January and February show notably fewer releases. 
+                    
+                    <br><br>This visualization empowers filmmakers and producers to make strategic release decisions by identifying less crowded months to maximize box office potential for mid-budget films,
+                    targeting peak seasons only when equipped with blockbuster budgets, and avoiding direct competition with major studio releases in order to reduce financial risk while maximizing audience reach and revenue potential.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
