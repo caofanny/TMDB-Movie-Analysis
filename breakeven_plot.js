@@ -39,16 +39,18 @@ movie_data.then(function(data) {
     const container = d3.select('#breakeven');
     const containerWidth = container.node().getBoundingClientRect().width;
 
+    const legendWidth = 180;
+
     // defining the svg margins and dimensions
     let 
-        width = containerWidth;
+        width = containerWidth - legendWidth;
         height = width * 0.75;
 
     let margin = { 
         top: 50,
         bottom: 50,
         left: 100,
-        right: 50
+        right: 200
     };
 
     // create the svg container
@@ -96,7 +98,7 @@ movie_data.then(function(data) {
     // make a legend
     let legend = svg.append('g')
                 .attr('class', 'legend')
-                .attr('transform', `translate(${width - margin.right - 150}, ${margin.top})`);
+                .attr('transform', `translate(${width - margin.right + 20}, ${margin.top})`);
     
     // data for the legend
     let legendData = [
@@ -145,21 +147,52 @@ movie_data.then(function(data) {
             filteredData = data.filter(d => (d.genres == selectedGenre));
         } 
 
+        // recalculates scales based on filtered data
+        xScale.domain([d3.min(filteredData, d => d.budget), d3.max(filteredData, d => d.budget)]);
+        yScale.domain([d3.min(filteredData, d => d.revenue), d3.max(filteredData, d => d.revenue)]);
+
+        // creates radius scale based on profitability
+        let radiusScale = d3.scaleSqrt()
+            .domain([d3.min(filteredData, d => d.profitability), d3.max(filteredData, d => d.profitability)])
+            .range([3, 10]); // min and max radius
+
+        // update axes based on current data ranges
+        xAxis.transition()
+            .duration(750)
+            .call(d3.axisBottom().scale(xScale));
+        
+        yAxis.transition()
+            .duration(750)
+            .call(d3.axisLeft().scale(yScale));
+
         let circle = svg.selectAll('circle.data')
                         .data(filteredData, d => d.title); // match data to movie titles
         
         // removes the circles without data
-        circle.exit().remove();
+        circle.exit()
+            .transition()
+            .duration(750)
+            .attr('opacity', 0)
+            .remove();
 
-        // adds the new circles
+        circle.transition()
+            .duration(750)
+            .attr('cx', d => xScale(d.budget))
+            .attr('cy', d => yScale(d.revenue))
+            .attr('r', d => radiusScale(d.profitability)) // dynamic radius
+            .attr('fill', d => assign_colors(d.profitability));
+
         circle.enter()
             .append('circle')
             .attr('class', 'data')
-            .attr('r', 3)
+            .attr('r', d => radiusScale(d.profitability)) // dynamic radius
             .attr('cx', d => xScale(d.budget))
             .attr('cy', d => yScale(d.revenue))
-            .attr('opacity', 0.6)
-            .attr('fill', d => assign_colors(d.profitability));
+            .attr('opacity', 0)
+            .attr('fill', d => assign_colors(d.profitability))
+            .transition()
+            .duration(750)
+            .attr('opacity', 0.7);
     }
 
     // initial graph
